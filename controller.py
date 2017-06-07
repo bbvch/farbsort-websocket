@@ -19,6 +19,7 @@ class Controller(object):
     self._logger.debug("init")
     self._hal = hal
     self._pru = pru
+    self._motor_running = False
     self._listener = None
     self._hal.register_on_input_change_callback(self._on_input_change)
     self._connected = False
@@ -28,6 +29,7 @@ class Controller(object):
 
   def connect(self):
     self._connected = True
+    self.post_event("conveyor={}".format("running" if self.motor else "stopped"))
     self.post_event("compressor={}".format("start" if self.compressor else "stop"))
     self.post_event("lightbarrier3={}".format("on" if self.lightbarrier3 else "off"))
     self.post_event("lightbarrier4={}".format("on" if self.lightbarrier4 else "off"))
@@ -60,6 +62,17 @@ class Controller(object):
       self.post_event(command)
 
   @property
+  def motor(self):
+    return self._motor_running
+
+  @motor.setter
+  def motor(self, value):
+    self._motor_running = value
+    self._pru.write(b'\x09' if value else b'\x0a')
+    self.post_event("conveyor={}".format("running" if value else "stopped"))
+    # return retval
+
+  @property
   def compressor(self):
     return self._hal.get_output(self._hal.COMPRESSOR)
 
@@ -83,7 +96,8 @@ class Controller(object):
 
   def _on_input_change(self, pin, value, last_value):
     now = datetime.datetime.now()
-    self.post_event("{}={}".format(pin, "on" if value else "off"))
+    display_value = "on" if value else "off"
+    self.post_event("{}={}".format(pin, display_value))
     self._logger.debug("pin {} changed: {} -> {}".format(
       pin, "on" if last_value else "off", display_value))
 
@@ -110,10 +124,7 @@ class Controller(object):
       else:
         self._pru.write(b'\x06')
     elif key == "motor":
-      if value == "start":
-        self._pru.write(b'\x09')
-      else:
-        self._pru.write(b'\x0a')
+        self.motor = value in ("on", "start")
     elif key == "valve1":
       if value == "on":
         self._pru.write(b'\x0b')
