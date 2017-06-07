@@ -28,22 +28,10 @@ class Controller(object):
 
   def connect(self):
     self._connected = True
-    display_value = "stop"
-    if self.compressor:
-      display_value = "start"
-    self.post_event("compressor={}".format(display_value))
-    display_value = "off"
-    if self.lightbarrier3:
-      display_value = "on"
-    self.post_event("lightbarrier3={}".format(display_value))
-    display_value = "off"
-    if self.lightbarrier4:
-      display_value = "on"
-    self.post_event("lightbarrier4={}".format(display_value))
-    display_value = "off"
-    if self.lightbarrier5:
-      display_value = "on"
-    self.post_event("lightbarrier5={}".format(display_value))
+    self.post_event("compressor={}".format("start" if self.compressor else "stop"))
+    self.post_event("lightbarrier3={}".format("on" if self.lightbarrier3 else "off"))
+    self.post_event("lightbarrier4={}".format("on" if self.lightbarrier4 else "off"))
+    self.post_event("lightbarrier5={}".format("on" if self.lightbarrier5 else "off"))
     #self._pru.write(chr(1))
 
   def disconnect(self):
@@ -156,7 +144,7 @@ class Controller(object):
       if value in ("on", "start"):
         set_value = True
       self.compressor = set_value
-      
+
 
   def __del__(self):
     self._logger.debug("delete")
