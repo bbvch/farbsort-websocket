@@ -66,10 +66,7 @@ class Controller(object):
   @compressor.setter
   def compressor(self, value):
     retval = self._hal.set_output(self._hal.COMPRESSOR, value)
-    display_value = "stop"
-    if value:
-      display_value = "start"
-    self.post_event("compressor={}".format(display_value))
+    self.post_event("compressor={}".format("start" if value else "stop"))
     return retval
 
   @property
@@ -86,16 +83,9 @@ class Controller(object):
 
   def _on_input_change(self, pin, value, last_value):
     now = datetime.datetime.now()
-
-    display_value = "off"
-    if value:
-      display_value = "on"
-    self.post_event("{}={}".format(pin, display_value))
-    display_last_value = "off"
-    if last_value:
-      display_last_value = "on"
+    self.post_event("{}={}".format(pin, "on" if value else "off"))
     self._logger.debug("pin {} changed: {} -> {}".format(
-      pin, display_last_value, display_value))
+      pin, "on" if last_value else "off", display_value))
 
   @staticmethod
   def split_command_into_key_and_value(command):
@@ -140,10 +130,7 @@ class Controller(object):
       else:
         self._pru.write(b'\x10')
     elif key == "compressor":
-      set_value = False
-      if value in ("on", "start"):
-        set_value = True
-      self.compressor = set_value
+      self.compressor = value in ("on", "start")
 
 
   def __del__(self):
