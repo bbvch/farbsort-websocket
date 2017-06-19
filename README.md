@@ -14,6 +14,9 @@ git clone https://github.com/bbvch/farbsort-websocket.git
 ```
 
 Preparation:
+If python pip is installed, the server will automatically download the necessary libraries. 
+using 'sudo apt-get install python-pip' will install pip on your system
+
 ```
 sudo apt-get install python-tornado
 ```
