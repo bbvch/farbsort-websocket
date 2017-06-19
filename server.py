@@ -9,6 +9,12 @@ except ImportError:
   print >> sys.stderr, "Could not import 'tornado', package might not be installed\n"
   print >> sys.stderr, "farbsort-websocket will not run without it. \n"
   
+  try:
+    import pip
+  except ImportError:
+    print >> sys.stderr, "pip not installed, cannot automatically retrieve packets"
+    quit()
+    
   answer = raw_input("should I download and install 'tornado' for you? [y/N]")
   if answer.lower() == 'y':
     print "Installing 'tornado'; Server will restart itself afterwards"

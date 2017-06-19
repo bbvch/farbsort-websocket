@@ -1,6 +1,7 @@
 System Requirements:
 ----
 
+- Linux (Tested on Ubnutu 16.04 x64)
 - Python 2.7 
 - Tornado Webserver 
 
@@ -16,7 +17,7 @@ Preparation:
 ```
 sudo apt-get install python-tornado
 ```
-	*OR* use python pip
+	*OR* use python pip (if installed)
 ```
 python -m pip install tornado
 ```
