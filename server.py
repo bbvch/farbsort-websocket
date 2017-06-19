@@ -1,7 +1,24 @@
-import tornado.httpserver
-import tornado.websocket
-import tornado.ioloop
-import tornado.web
+try:
+  import tornado.httpserver
+  import tornado.websocket
+  import tornado.ioloop
+  import tornado.web
+except ImportError:
+  import sys
+  import os
+  print >> sys.stderr, "Could not import 'tornado', package might not be installed\n"
+  print >> sys.stderr, "farbsort-websocket will not run without it. \n"
+  
+  answer = raw_input("should I download and install 'tornado' for you? [y/N]")
+  if answer.lower() == 'y':
+    print "Installing 'tornado'; Server will restart itself afterwards"
+    import pip
+    result = pip.main(['install', 'tornado'])
+    if result != 0:
+      print >> sys.stderr, "Failed to install 'tornado', exiting"
+  else:
+    quit()
+
 
 from controller import Controller
 from hal import HAL
