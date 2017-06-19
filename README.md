@@ -1,3 +1,9 @@
+System Requirements:
+----
+
+- Python 2.7 
+- Tornado Webserver 
+
 Setup
 -----
 
@@ -10,7 +16,10 @@ Preparation:
 ```
 sudo apt-get install python-tornado
 ```
-
+	*OR* use python pip
+```
+python -m pip install tornado
+```
 
 Run
 ---
