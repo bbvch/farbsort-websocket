@@ -16,6 +16,11 @@ except ImportError:
     result = pip.main(['install', 'tornado'])
     if result != 0:
       print >> sys.stderr, "Failed to install 'tornado', exiting"
+      quit()
+    else:
+      python = sys.executable
+      print "restarting server"
+      os.execl(python, __file__, *sys.argv)
   else:
     quit()
 
