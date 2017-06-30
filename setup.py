@@ -83,7 +83,7 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['tornado'],
+    install_requires=['tornado', 'fcntl'],
 
 	platforms=['Linux-x86_64'],
 
