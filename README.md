@@ -25,6 +25,7 @@ New versions can be installed over any old installed versions, python pip takes 
 1. install using pip
   1. for a installation for the current user only use ```$>pip install <path_to_your_package>.whl --user```
   1. For a system whie installation use ```$>sudo pip install <path_to_your_package>.whl --user```
+1. run as root using ```sudo python -m farbsort```
 
 Uninstalling
 ---
@@ -58,7 +59,7 @@ For the binary wheel distributions use ```$>python setup.py bdist_wheel -p linux
 For more inforamtion about building packages call ```$>python setup.py --help```
 
 
-Run
+Run in developer mode
 ---
 
 Run server:
