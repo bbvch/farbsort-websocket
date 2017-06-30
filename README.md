@@ -1,11 +1,19 @@
+About
+----
+This is the python application running the websocket server that functions as a communication bridge between the PRU-Code (https://github.com/bbvch/pru-farbsort) and the Qt Gui (https://github.com/bbvch/farbsort-gui) 
+
+
+
 System Requirements:
 ----
 
 - Linux (Tested on Ubnutu 16.04 x64)
 - Python 2.7 
-- Tornado Webserver 
+- Tornado Webserver
 
-Setup
+
+
+Setup for development
 -----
 
 Checkout:
@@ -24,6 +32,10 @@ sudo apt-get install python-tornado
 ```
 python -m pip install tornado
 ```
+Build pyhton module 
+---
+run ```$>python setup.py sdist``` to build the source distribution. 
+For more inforamtion about building packages call ```$>python setup.py --help```
 
 Run
 ---
