@@ -1,2 +1,2 @@
-include *.py
+include farbsort *.py
 include farbsort.html
