@@ -1,3 +1,10 @@
+System Requirements:
+----
+
+- Linux (Tested on Ubnutu 16.04 x64)
+- Python 2.7 
+- Tornado Webserver 
+
 Setup
 -----
 
@@ -7,10 +14,16 @@ git clone https://github.com/bbvch/farbsort-websocket.git
 ```
 
 Preparation:
+If python pip is installed, the server will automatically download the necessary libraries. 
+using 'sudo apt-get install python-pip' will install pip on your system
+
 ```
 sudo apt-get install python-tornado
 ```
-
+	*OR* use python pip (if installed)
+```
+python -m pip install tornado
+```
 
 Run
 ---
