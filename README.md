@@ -11,6 +11,24 @@ System Requirements:
 - Python 2.7 
 - Tornado Webserver
 
+Setup for non-development
+----
+_Note_: if setting up for development see further below
+
+Preferably use the binary wheel installer but if unsure about platform support or need for advanced debugging use the source distribution
+
+Installing & running
+---
+New versions can be installed over any old installed versions, python pip takes care of that. For a version rollback the newer versions have to be uninstalled first
+
+1. Download the latest release for your platform
+1. install using pip
+  1. for a installation for the current user only use ```$>pip install <path_to_your_package>.whl --user```
+  1. For a system whie installation use ```$>sudo pip install <path_to_your_package>.whl --user```
+
+Uninstalling
+---
+1. run ```$>pip uninstall farbsort-websocket```
 
 
 Setup for development
@@ -35,7 +53,10 @@ python -m pip install tornado
 Build pyhton module 
 ---
 run ```$>python setup.py sdist``` to build the source distribution. 
+For the binary wheel distributions use ```$>python setup.py bdist_wheel -p linux-x86_64```
+
 For more inforamtion about building packages call ```$>python setup.py --help```
+
 
 Run
 ---

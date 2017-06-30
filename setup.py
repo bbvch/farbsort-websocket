@@ -17,8 +17,14 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
+# copy contents of readme.md to readme for python package 
+if not path.exists("README.rst"):
+	readme = open("README.rst", 'w')
+	readme.write(long_description)
+	readme.close()
+
 setup(
-    name='farbsort-websocket',
+    name='farbsort',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
@@ -79,6 +85,8 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=['tornado'],
 
+	platforms=['Linux-x86_64'],
+
 	python_requires='>=2.7, <3',
 
     # List additional groups of dependencies here (e.g. development
@@ -94,7 +102,7 @@ setup(
     # installed, specify them here.  If using Python 2.6 or less, then these
     # have to be included in MANIFEST.in as well.
     package_data={
-        'sample': ['farbsort.html'],
+        '': ['farbsort.html', 'README.md'],
     },
 
 
