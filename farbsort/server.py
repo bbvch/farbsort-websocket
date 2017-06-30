@@ -103,7 +103,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
       self._event_post_timer = None
 
 
-if __name__ == "__main__":
+def run():
   import getpass
   import signal
   import sys
@@ -151,3 +151,7 @@ if __name__ == "__main__":
   controller.motor = False
   controller.valve1 = False
   print "done."
+
+if __name__ == "__main__":
+  run()
+  
