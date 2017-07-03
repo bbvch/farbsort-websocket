@@ -98,8 +98,8 @@ setup(
     # for example:
     # $ pip install -e .[dev,test]
     extras_require={
-        'dev': ['check-manifest'],
-        'test': ['coverage'],
+		'hwcontrol:sys_platform=="linux"' : ['fcntl']
+
     },
 
     # If there are data files included in your packages that need to be
