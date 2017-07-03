@@ -52,7 +52,7 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 4 - Beta',
 
         # Indicate who your project is intended for
 #        'Intended Audience :: Developers',
@@ -87,7 +87,7 @@ setup(
     # your project is installed. For an analysis of "install_requires" vs pip's
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['tornado'],
+    install_requires=['tornado', 'Adafruit_BBIO', 'RPI.gpio'],
 
 	platforms = ['linux'],
 

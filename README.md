@@ -7,9 +7,13 @@ This is the python application running the websocket server that functions as a 
 System Requirements:
 ----
 
-- Linux (Tested on Ubnutu 16.04 x64)
-- Python 2.7 
-- Tornado Webserver
+ * Linux (Tested on Ubnutu 16.04 x64)
+ * Python 2.7 
+ * Python Modules - it is suggested to use ```pip``` to install these
+   * Tornado Webserver (python module)
+   * Adafruit-bbio (Adafruit beaglebone io)
+   * RPi.GPIO (Rasperry pi GPIO)
+
 
 Setup for non-development
 ----
@@ -19,7 +23,7 @@ Preferably use the binary wheel installer but if unsure about platform support o
 
 Installing & running
 ---
-New versions can be installed over any old installed versions, python pip takes care of that. For a version rollback the newer versions have to be uninstalled first
+New versions can be installed over any old installed versions, python pip takes care of that. For a version rollback the newer versions have to be uninstalled first. All necessary dependencies will be installed as well. 
 
 1. Download the latest release for your platform
 1. install using pip
@@ -41,11 +45,11 @@ git clone https://github.com/bbvch/farbsort-websocket.git
 ```
 
 Preparation:
-If python pip is installed, the server will automatically download the necessary libraries. 
+If *farbsort* is installed  using pip all necessary libraries will be installed with it. 
 using 'sudo apt-get install python-pip' will install pip on your system
 
 ```
-sudo apt-get install python-tornado
+sudo apt-get install python-tornado 
 ```
 	*OR* use python pip (if installed)
 ```
