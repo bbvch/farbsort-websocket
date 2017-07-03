@@ -29,9 +29,9 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-	# using the reverse date as version number to avoid  discussion what makes a version 1.0
-	# yyyy.(m)m.(d)d if you have more than one version a day append hour and minutes
-    version='2017.6.30',
+	# using the reverse date as version number to avoid discussion what makes a version 1.0
+	# yyyy.mm.dd if you have more than one version a day append hour and minutes
+    version='2017.07.03',
 
     description='the websocket server for the AMP showcase',
     long_description=long_description,
@@ -43,8 +43,8 @@ setup(
     author='Embedded Community @bbv',
     author_email='info@bbv.ch',
 
-    # Choose your license
-#    license='MIT',
+    # Choose your license 
+    license='GPLv3',
 
     # See https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
@@ -52,19 +52,23 @@ setup(
         #   3 - Alpha
         #   4 - Beta
         #   5 - Production/Stable
- #       'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
 
         # Indicate who your project is intended for
 #        'Intended Audience :: Developers',
 #        'Topic :: Software Development :: Build Tools',
 
         # Pick your license as you wish (should match "license" above)
-#        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: GNU Public License v3 (GPLv3)',
 
         # Specify the Python versions you support here. In particular, ensure
         # that you indicate whether you support Python 2, Python 3 or both.
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
+
+        'Environment :: Console',
+        'Operating System :: POSIX :: Linux',
+
         
     ],
 
@@ -84,6 +88,8 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=['tornado'],
+
+	platforms = ['linux'],
 
 	python_requires='>=2.7, <3',
 
