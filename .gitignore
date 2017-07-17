@@ -1,2 +1,6 @@
 *.pyc
 /venv/
+dist/
+*.egg-info/
+README.rst
+build/

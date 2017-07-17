@@ -1,0 +1,2 @@
+include farbsort *.py
+include farbsort.html

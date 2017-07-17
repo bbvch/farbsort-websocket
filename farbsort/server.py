@@ -7,28 +7,11 @@ except ImportError:
   import sys
   import os
   print >> sys.stderr, "Could not import 'tornado', package might not be installed\n"
-  print >> sys.stderr, "farbsort-websocket will not run without it. \n"
-  
-  try:
-    import pip
-  except ImportError:
-    print >> sys.stderr, "pip not installed, cannot automatically retrieve packets"
-    quit()
-    
-  answer = raw_input("should I download and install 'tornado' for you? [y/N]")
-  if answer.lower() == 'y':
-    print "Installing 'tornado'; Server will restart itself afterwards"
-    import pip
-    result = pip.main(['install', 'tornado'])
-    if result != 0:
-      print >> sys.stderr, "Failed to install 'tornado', exiting"
-      quit()
-    else:
-      python = sys.executable
-      print "restarting server"
-      os.execl(python, __file__, *sys.argv)
-  else:
-    quit()
+  print >> sys.stderr, "farbsort will not run without it. \n"
+  print >> sys.stderr, "Run $>pip install tornado to install it. (You might need to install pip first)\n"
+  print >> sys.stderr, "it is recommended that you use the wheel-package provided here: https://github.com/bbvch/farbsort-websocket"
+  quit()
+
 
 
 from controller import Controller
@@ -103,7 +86,7 @@ class WSHandler(tornado.websocket.WebSocketHandler):
       self._event_post_timer = None
 
 
-if __name__ == "__main__":
+def run():
   import getpass
   import signal
   import sys
@@ -151,3 +134,7 @@ if __name__ == "__main__":
   controller.motor = False
   controller.valve1 = False
   print "done."
+
+if __name__ == "__main__":
+  run()
+  
