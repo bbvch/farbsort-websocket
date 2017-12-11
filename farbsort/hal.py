@@ -84,14 +84,7 @@ class HAL(HAL_base):
     super(HAL, self).__init__(**kwargs)
     global GPIO
     import Adafruit_BBIO.GPIO as GPIO
-    self._setup_pin(self.MOTOR)
     self._setup_pin(self.COMPRESSOR)
-    self._setup_pin(self.VALVE1)
-    self._setup_pin(self.VALVE2)
-    self._setup_pin(self.VALVE3)
-    self._setup_pin(self.PULSECOUNTER)
-    self._setup_pin(self.LIGHTBARRIER1)
-    self._setup_pin(self.LIGHTBARRIER2)
     self._setup_pin(self.LIGHTBARRIER3)
     self._setup_pin(self.LIGHTBARRIER4)
     self._setup_pin(self.LIGHTBARRIER5)
