@@ -9,3 +9,5 @@ tests:
 install:
 	cp farbsort-websocket.service /etc/systemd/system/
 	sed -i "s|/root/farbsort-websocket|$(CURDIR)|" /etc/systemd/system/farbsort-websocket.service
+	cp farbsort-pinmux-and-pru.service /etc/systemd/system/
+	sed -i "s|/root/farbsort-websocket|$(CURDIR)|" /etc/systemd/system/farbsort-pinmux-and-pru.service

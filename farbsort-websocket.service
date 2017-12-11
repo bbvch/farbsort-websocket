@@ -1,6 +1,7 @@
 [Unit]
 Description=Farbsort-Websocket Server
-After=network.target
+After=farbsort-pinmux-and-pru.service
+Requires=farbsort-pinmux-and-pru.service
 
 [Service]
 ExecStart=/usr/bin/python /root/farbsort-websocket/farbsort/server.py

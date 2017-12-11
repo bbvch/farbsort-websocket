@@ -1,0 +1,11 @@
+[Unit]
+Description=Farbsort pinmux configuration and PRU setup script
+After=generic-board-startup.service
+Requires=generic-board-startup.service
+
+[Service]
+Type=oneshot
+ExecStart=/root/farbsort-websocket/configure-pinmux-and-start-pru0.sh
+
+[Install]
+WantedBy=multi-user.target
