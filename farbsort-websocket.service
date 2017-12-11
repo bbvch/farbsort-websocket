@@ -3,8 +3,8 @@ Description=Farbsort-Websocket Server
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python /root/farbsort-websocket/server.py
-PIDFile=/root/farbsort-websocket/master.pid
+ExecStart=/usr/bin/python /root/farbsort-websocket/farbsort/server.py
+PIDFile=/var/run/farbsort-websocket.pid
 
 [Install]
 WantedBy=multi-user.target
