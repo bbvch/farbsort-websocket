@@ -67,7 +67,7 @@ class PRU(object):
      def _run(self):
           while not self._thread_exit:
                self.read()
-               time.sleep(.001)
+               time.sleep(.1)
 
      def read(self):
           try:
